@@ -16,9 +16,8 @@ class Solution:
         z = np.dot(x, w) + b
         y_hat = 1 / (1 + np.exp(-z))
         loss = 0.5 * (y_hat - y_true)**2
-        dL_dw = []
-        for i in range(len(x)):
-            dL_dw.append((y_hat - y_true) * (y_hat * (1 - y_hat) * x[i]))
+
+        dL_dw = ((y_hat - y_true) * (y_hat * (1 - y_hat) * x))
         dL_db = (y_hat - y_true) * y_hat * (1 - y_hat)
         res1 = np.round(dL_dw, 5)
         res2 = np.round(dL_db, 5)
